@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8">
+<title>Offerte – KT Buitenwerk</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #2F5D3A;
+    --green-soft: #EEF3EC;
+    --ink: #1E2420;
+    --muted: #6B736D;
+    --line: #DCE4D9;
+  }
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: #fff; }
+  body {
+    font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--ink);
+    font-size: 10pt;
+    line-height: 1.5;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page {
+    width: 210mm;
+    height: 297mm;
+    padding: 12mm 18mm 0 18mm;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 4mm;
+    border-bottom: 1.5px solid var(--green);
+  }
+  .logo { font-size: 17pt; font-weight: 800; letter-spacing: -0.02em; color: var(--green); line-height: 1; }
+  .logo span { font-weight: 400; color: var(--ink); }
+  .tagline { font-size: 8.5pt; color: var(--muted); margin-top: 1.5mm; }
+  .header-contact { text-align: right; font-size: 8.5pt; color: var(--muted); line-height: 1.6; }
+
+  /* Title */
+  .title-row { margin-top: 6mm; }
+  h1 { font-size: 27pt; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .lead { margin-top: 2mm; font-size: 12pt; color: var(--green); font-weight: 600; }
+  .intro { margin-top: 2mm; color: #3C443E; max-width: 150mm; }
+
+  /* Meta */
+  .meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10mm;
+    margin-top: 5mm;
+  }
+  .meta h3, .section-label {
+    font-size: 7.5pt; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.1em; color: var(--muted); margin-bottom: 1.5mm;
+  }
+  .meta dl { display: grid; grid-template-columns: 30mm 1fr; row-gap: 0.6mm; font-size: 9.5pt; }
+  .meta dt { color: var(--muted); }
+  .meta dd { font-weight: 500; }
+
+  /* Work */
+  .section-label { margin-top: 5mm; margin-bottom: 2.5mm; }
+  .tasks { display: flex; flex-direction: column; gap: 1.6mm; }
+  .task {
+    display: grid;
+    grid-template-columns: 9mm 1fr;
+    gap: 4mm;
+    padding: 2.2mm 4.5mm;
+    border-radius: 3mm;
+    background: #fff;
+    border: 1px solid var(--line);
+  }
+  .task:nth-child(odd) { background: var(--green-soft); border-color: var(--green-soft); }
+  .num {
+    width: 7.5mm; height: 7.5mm; border-radius: 50%;
+    background: var(--green); color: #fff;
+    font-weight: 700; font-size: 9pt;
+    display: flex; align-items: center; justify-content: center;
+    margin-top: 0.3mm;
+  }
+  .task h4 { font-size: 10.5pt; font-weight: 600; }
+  .task p { font-size: 9.5pt; color: #3C443E; margin-top: 0.5mm; }
+
+  .note {
+    margin-top: 3mm;
+    display: flex; gap: 3mm; align-items: flex-start;
+    font-size: 9pt; color: #3C443E;
+    padding: 0 4.5mm;
+  }
+  .note svg { flex: none; margin-top: 0.4mm; }
+  .note strong { color: var(--green); }
+
+  /* Price + trust */
+  .bottom {
+    display: grid;
+    grid-template-columns: 1.15fr 1fr;
+    gap: 6mm;
+    margin-top: 5mm;
+  }
+  .price {
+    background: var(--green);
+    color: #fff;
+    border-radius: 4mm;
+    padding: 4.5mm 6mm;
+  }
+  .price .label { font-size: 8pt; text-transform: uppercase; letter-spacing: 0.1em; opacity: .8; font-weight: 600; }
+  .price .amount { font-size: 30pt; font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; margin-top: 1mm; }
+  .price .promise { margin-top: 2mm; font-size: 9.5pt; line-height: 1.45; opacity: .95; }
+  .price .pay { margin-top: 2.5mm; padding-top: 2.5mm; border-top: 1px solid rgba(255,255,255,.25); font-size: 8.5pt; opacity: .85; }
+
+  .trust {
+    background: var(--green-soft);
+    border-radius: 4mm;
+    padding: 4.5mm 6mm;
+    display: flex; flex-direction: column; justify-content: center; gap: 3mm;
+  }
+  .trust-item { display: flex; align-items: center; gap: 3.5mm; font-weight: 600; font-size: 10pt; }
+  .icon {
+    flex: none; width: 9mm; height: 9mm; border-radius: 50%;
+    background: #fff; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* CTA */
+  .cta {
+    margin-top: 5mm;
+    border: 1.5px dashed var(--green);
+    border-radius: 4mm;
+    padding: 3.5mm 6mm;
+    display: flex; align-items: center; gap: 5mm;
+  }
+  .cta .icon { background: var(--green); width: 11mm; height: 11mm; }
+  .cta h4 { font-size: 11.5pt; font-weight: 700; color: var(--green); }
+  .cta p { font-size: 9.5pt; color: #3C443E; }
+
+  
+  /* Footer */
+  footer {
+    margin-top: auto;
+    padding: 4mm 0 8mm;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 8.5pt; color: var(--muted);
+  }
+  footer .thanks { color: var(--green); font-weight: 600; font-size: 10pt; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <div class="logo">KT <span>Buitenwerk</span></div>
+      <div class="tagline">Tuinonderhoud &amp; -renovatie · regio Rotterdam</div>
+    </div>
+    <div class="header-contact">
+      Kevin &amp; Twan<br>
+      06 28 29 23 65<br>
+      [e-mailadres]
+    </div>
+  </header>
+
+  <div class="title-row">
+    <h1>Offerte</h1>
+    <div class="lead">Uw tuin klaar voor uw nieuwe schutting</div>
+    <p class="intro">Wij maken de ruimte langs de schutting helemaal vrij en zorgen dat uw tuin er weer strak en verzorgd bij ligt, inclusief afvoer van al het groenafval.</p>
+  </div>
+
+  <div class="meta">
+    <div>
+      <h3>Voor</h3>
+      <dl>
+        <dt>Naam</dt><dd>[Naam klant]</dd>
+        <dt>Adres</dt><dd>Indira Gandhistraat 43</dd>
+        <dt>Plaats</dt><dd>Spijkenisse</dd>
+      </dl>
+    </div>
+    <div>
+      <h3>Offerte</h3>
+      <dl>
+        <dt>Offertenummer</dt><dd>[nummer]</dd>
+        <dt>Datum</dt><dd>8 november 2026</dd>
+        <dt>Geldig tot</dt><dd>[datum]</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="section-label">Wat wij voor u doen</div>
+  <div class="tasks">
+    <div class="task">
+      <div class="num">1</div>
+      <div>
+        <h4>Achtertuin: vrije doorgang voor uw nieuwe schutting</h4>
+        <p>Alle beplanting in de plantenbakken langs de schutting zetten wij kort terug tot op de rand van de bak. Zo kan uw nieuwe schutting zonder obstakels geplaatst worden. De wortels blijven netjes in de bak.</p>
+      </div>
+    </div>
+    <div class="task">
+      <div class="num">2</div>
+      <div>
+        <h4>Achterkant bij de parkeerplaats: strak en recht</h4>
+        <p>De heggen en vuurdoorns langs de muur snoeien wij strak en recht, voor een verzorgde uitstraling aan de achterzijde.</p>
+      </div>
+    </div>
+    <div class="task">
+      <div class="num">3</div>
+      <div>
+        <h4>Zijkant: weer ruimte langs de muur</h4>
+        <p>De struik tegen de muur snoeien wij kort terug, zodat de zijkant weer open en overzichtelijk is.</p>
+      </div>
+    </div>
+    <div class="task">
+      <div class="num">4</div>
+      <div>
+        <h4>Opruimen en afvoer: u hoeft niets te doen</h4>
+        <p>Al het snoeiafval nemen wij mee. U houdt een opgeruimde tuin over.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="note">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#2F5D3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+    <span><strong>Goed om te weten:</strong> coniferen lopen na het terugzetten niet opnieuw uit. Dat is ideaal, want zo blijft de ruimte voor uw nieuwe schutting vrij.</span>
+  </div>
+
+  <div class="bottom">
+    <div class="price">
+      <div class="label">Totaalprijs</div>
+      <div class="amount">€ 375,-</div>
+      <div class="promise">Vaste prijs, geen verrassingen achteraf.<br>Inclusief afvoer van al het groenafval.</div>
+      <div class="pay">Betaling pas na afronding van de werkzaamheden.</div>
+    </div>
+    <div class="trust">
+      <div class="trust-item">
+        <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F5D3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+        Binnen één dagdeel klaar
+      </div>
+      <div class="trust-item">
+        <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F5D3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+        Alles netjes opgeruimd
+      </div>
+      <div class="trust-item">
+        <span class="icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2F5D3A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.3"/></svg></span>
+        Vaste prijs vooraf
+      </div>
+    </div>
+  </div>
+
+  <div class="cta">
+    <span class="icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.5A8.5 8.5 0 1 1 21 11.5z"/></svg></span>
+    <div>
+      <h4>Akkoord? Stuur ons een berichtje met ‘akkoord’ via WhatsApp</h4>
+      <p>Dan plannen we de klus direct in. WhatsApp naar <strong>06 28 29 23 65</strong>.</p>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <strong style="color:var(--ink)">KT Buitenwerk</strong> · Kevin &amp; Twan · 06 28 29 23 65 · [e-mailadres]
+    </div>
+    <div class="thanks">Bedankt voor uw vertrouwen</div>
+  </footer>
+
+</div>
+</body>
+</html>
